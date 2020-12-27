@@ -3,7 +3,8 @@ require:
   - rubocop-rake
 
 AllCops:
-    NewCops: enable
+  NewCops: enable
+  TargetRubyVersion: 2.6
 
 Style/StringLiterals:
   Enabled: true
