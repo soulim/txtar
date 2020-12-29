@@ -4,13 +4,13 @@ A Ruby implementation of [`txtar`](https://github.com/golang/tools/tree/master/t
 
 ## Background
 
-I found `txtar` package while working on my Go projects and really liked the
-idea. Txtar archives helped me to package test fixtures in clean and human-friendly
+I found `txtar` package while working on my Go projects and liked the
+idea. Txtar archives helped me to package test fixtures in a clean and a human-friendly
 way.
 
-Recently tinkering on a Ruby project, I decided to use txtar files to packages
-samples of input/output data in tests. As there is no Ruby gem that implements
-the spec, I decided to make one :)
+Recently tinkering on a Ruby project, I decided to use txtar files to organize
+samples of input/output data in tests. As no Ruby gem implements
+the format, I decided to make one :)
 
 ## Txtar format spec
 
@@ -34,6 +34,8 @@ The format spec copied from `txtar` Go package source code:
 
 ## Install
 
+The installation procedure is standard as for any other Ruby gem.
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -54,39 +56,8 @@ $ gem install txtar
 
 ## Usage
 
-Personally I use txtar files to package test fixtures. Below you see a simple
-example of the gem could be used.
-
-```ruby
-# main.rb
-require "txtar"
-
-text = <<~TXT.strip
-  It's a comment for the txtar archive. The comment might
-  contain multiple lines.
-  -- sample.txt --
-  Hello, world.
-  -- sample.rb --
-  puts "Hello, world."
-TXT
-
-txtar = Txtar::Archive.parse(data: text)
-pp txtar
-```
-```ShellSession
-$ ruby main.rb
-#<Txtar::Archive:0x00007f9d81ae50a8
- @comment=
-  "It's a comment for the txtar archive. The comment might\n" +
-  "contain multiple lines.\n",
- @files=
-  [#<Txtar::File:0x00007f9d81ae5210
-    @data="Hello, world.\n",
-    @name="sample.txt">,
-   #<Txtar::File:0x00007f9d81ae50f8
-    @data="puts \"Hello, world.\"\n",
-    @name="sample.rb">]>
-```
+As mentioned above, personally I use txtar files to organize test fixtures. See
+[docs/examples](docs/examples).
 
 ## Contributing
 

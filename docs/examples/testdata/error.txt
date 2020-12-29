@@ -1,0 +1,18 @@
+This is an example when input data contains invalid lines.
+
+Expected behavior:
+
+  * STDOUT contains results for all lines that can be processed
+  * STDERR contains error messages
+
+-- stdin --
+1 + 2
+2 * 3
+3 foo 4
+4 + 5
+-- stdout --
+1,+,2,3
+2,*,3,6
+4,+,5,9
+-- stderr --
+level=error msg="cannot process" left=3 operator=foo right=4

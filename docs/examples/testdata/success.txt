@@ -1,0 +1,18 @@
+This is an example when input data contains only valid lines.
+
+Expected behavior:
+
+  * STDOUT contains results for all lines from the input
+  * STDERR contains no messages
+
+-- stdin --
+1 + 2
+2 * 3
+3 - 4
+4 + 5
+-- stdout --
+1,+,2,3
+2,*,3,6
+3,-,4,-1
+4,+,5,9
+-- stderr --
